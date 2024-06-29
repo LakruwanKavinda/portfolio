@@ -4,6 +4,7 @@ import 'package:flutter_application_123/constants/nav_items.dart';
 import 'package:flutter_application_123/widgets/site_logo.dart';
 
 import '../styles/style.dart';
+import '../widgets/drawer_mobile.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
 
@@ -15,17 +16,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scaffoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: scaffoldkey,
         backgroundColor: CustomColor.scaffoldBg,
+        endDrawer: const DrawerMobile(),
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
             //MAIN
             //HeaderDesktop(),
             HeaderMobile(
-              onMenuTap: () {},
+              onLogoTap: () {},
+              onMenuTap: () {
+                scaffoldkey.currentState?.openEndDrawer();
+              },
             ),
 
             //SKILLS
