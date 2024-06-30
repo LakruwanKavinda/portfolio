@@ -3,6 +3,7 @@ import 'package:flutter_application_123/constants/colors.dart';
 import 'package:flutter_application_123/constants/nav_items.dart';
 import 'package:flutter_application_123/widgets/site_logo.dart';
 
+import '../constants/size.dart';
 import '../styles/style.dart';
 import '../widgets/drawer_mobile.dart';
 import '../widgets/header_desktop.dart';
@@ -19,47 +20,53 @@ class _HomePageState extends State<HomePage> {
   final scaffoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        key: scaffoldkey,
-        backgroundColor: CustomColor.scaffoldBg,
-        endDrawer: const DrawerMobile(),
-        body: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            //MAIN
-            //HeaderDesktop(),
-            HeaderMobile(
-              onLogoTap: () {},
-              onMenuTap: () {
-                scaffoldkey.currentState?.openEndDrawer();
-              },
-            ),
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+          key: scaffoldkey,
+          backgroundColor: CustomColor.scaffoldBg,
+          endDrawer: constraints.maxWidth >= kMinDesktopWidth
+              ? null
+              : const DrawerMobile(),
+          body: ListView(
+            scrollDirection: Axis.vertical,
+            children: [
+              //MAIN
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const HeaderDesktop()
+              else
+                HeaderMobile(
+                  onLogoTap: () {},
+                  onMenuTap: () {
+                    scaffoldkey.currentState?.openEndDrawer();
+                  },
+                ),
 
-            //SKILLS
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //PROJECTS
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //CONTACTS
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //FOOTER
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            )
-          ],
-        ));
+              //SKILLS
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //PROJECTS
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //CONTACTS
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //FOOTER
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              )
+            ],
+          ));
+    });
   }
 }
