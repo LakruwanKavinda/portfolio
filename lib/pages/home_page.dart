@@ -10,6 +10,7 @@ import '../styles/style.dart';
 import '../widgets/drawer_mobile.dart';
 import '../widgets/header_desktop.dart';
 import '../widgets/header_mobile.dart';
+import '../widgets/main_desktop.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,46 +47,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
 
-              Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                ),
-                height: screenSize.height / 1.2,
-                constraints: BoxConstraints(
-                  minHeight: 350.0,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Hi \nI'm Lakruwan\nA Web Developer",
-                          style: TextStyle(
-                            fontSize: 30.0,
-                            height: 1.5,
-                            fontWeight: FontWeight.bold,
-                            color: CustomColor.whitePrimary,
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        SizedBox(
-                          width: 250,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text("Get in touch"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Image.asset(
-                      "assets/lkd.jpeg",
-                      width: screenWidth / 2,
-                    ),
-                  ],
-                ),
-              ),
+              const MainDesktop(),
 
               //SKILLS
               Container(

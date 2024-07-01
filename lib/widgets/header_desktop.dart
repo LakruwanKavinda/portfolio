@@ -11,35 +11,36 @@ class HeaderDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 60,
-        margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
-          horizontal: 20.0,
-        ),
-        width: double.maxFinite,
-        decoration: kHeaderDecoration,
-        child: Row(
-          children: [
-            siteLogo(
-              onTap: () {},
-            ),
-            const Spacer(),
-            for (int i = 0; i < navTitles.length; i++)
-              Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    navTitles[i],
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: CustomColor.whitePrimary,
-                    ),
+      height: 60,
+      margin: const EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: 20.0,
+      ),
+      width: double.maxFinite,
+      decoration: kHeaderDecoration,
+      child: Row(
+        children: [
+          siteLogo(
+            onTap: () {},
+          ),
+          const Spacer(),
+          for (int i = 0; i < navTitles.length; i++)
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  navTitles[i],
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: CustomColor.whitePrimary,
                   ),
                 ),
               ),
-          ],
-        ));
+            ),
+        ],
+      ),
+    );
   }
 }
