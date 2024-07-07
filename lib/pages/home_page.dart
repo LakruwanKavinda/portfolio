@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_123/constants/colors.dart';
 import 'package:flutter_application_123/constants/nav_items.dart';
+import 'package:flutter_application_123/widgets/main_mobile.dart';
 import 'package:flutter_application_123/widgets/site_logo.dart';
 
 import '../constants/size.dart';
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -46,8 +48,10 @@ class _HomePageState extends State<HomePage> {
                     scaffoldkey.currentState?.openEndDrawer();
                   },
                 ),
-
-              const MainDesktop(),
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const MainDesktop()
+              else
+                const MainMobile(),
 
               //SKILLS
               Container(

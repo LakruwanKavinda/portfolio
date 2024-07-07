@@ -24,6 +24,7 @@ class MainDesktop extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // intro message
               const Text(
                 "Hi \nI'm Lakruwan\nA Web Developer",
                 style: TextStyle(
