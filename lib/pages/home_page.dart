@@ -6,6 +6,7 @@ import 'package:flutter_application_123/constants/nav_items.dart';
 import 'package:flutter_application_123/widgets/main_mobile.dart';
 import 'package:flutter_application_123/widgets/site_logo.dart';
 import 'package:flutter_application_123/widgets/skills_desktop.dart';
+import 'package:flutter_application_123/widgets/skills_mobile.dart';
 
 import '../constants/size.dart';
 import '../constants/skill_items.dart';
@@ -75,27 +76,10 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 50),
 
                     //platforms and skills
-                    //const SkillsDesktop()
-                    Column(
-                      children: [
-                        //platforms
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 5.0),
-                          width: double.maxFinite,
-                          decoration: BoxDecoration(
-                            color: CustomColor.bgLight2,
-                            borderRadius: BorderRadius.circular(5.0),         
-                          ),
-                          child: ListTile(
-                            contentPadding: EdgeInsets.,
-                            leading: Image.asset("",width: 26.0,),
-                            title: Text(""),
-                          ),
-                        ),
-
-                        //skills
-                      ],
-                    )
+                    if (constraints.maxWidth >= kMedDesktopWidth)
+                      const SkillsDesktop()
+                    else
+                      const SkillsMobile(),
                   ],
                 ),
               ),
